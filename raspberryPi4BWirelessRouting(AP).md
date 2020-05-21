@@ -93,6 +93,8 @@ root@raspberrypi:~# apt upgrade
 
 在最新的树莓派版本中，所有的网络接口默认使用dhcpcd.service服务进行配置，因为wlan0工作在AP模式，所以我们要手动给他配置静态IP地址，先在配置文件/etc/dhcpcd.conf中最下面添加一行禁用wlan0 ,否则wlan0和eth0会发生冲突。
 
+echo "denyinterfaces wlan0" >> /etc/dhcpcd.conf
+
 ==另外还需要在/etc/network/interfaces 中增加[IP地址信息](#IP设置)，这个我们在前面已经做过了。==
 
 
